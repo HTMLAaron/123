@@ -116,6 +116,22 @@ const server = http.createServer((req,res) => {
 		case '/search':
 			read_n_print(res,parseInt(max),parsedURL.query.criteria);
 			break;
+		case '/insert':
+			res.writeHead(200, {'Content-Type': 'text/html'});
+    			res.write('<form action="/create" method="post" enctype="multipart/form-data">');
+    			res.write('Name: <input type="text" name="name"><br>');
+   			res.write('Borough: <input type="text" name="borough"><br>');
+			res.write('Cuisine: <input type="text" name="cuisine"><br>');
+			res.write('Street: <input type="text" name="street"><br>');
+			res.write('Building: <input type="text" name="building"><br>');
+			res.write('Zipcode: <input type="text" name="zipcode"><br>');
+			res.write('Latitude: <input type="text" name="latitude"><br>');
+			res.write('Longitude: <input type="text" name="longitude"><br>');
+			res.write('Score: <input type="text" name="Score"><br>');
+   			res.write('<input type="file" name="filetoupload"><br>');
+			res.write('<input type="submit" value="Create">')
+			res.end('</form></body></html>');
+			break;
 		case '/create':
 			const form = new formidable.IncomingForm();
     			form.parse(req, (err, fields, files) => {
