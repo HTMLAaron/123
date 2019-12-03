@@ -58,7 +58,7 @@ app.post('/login', setCurrentTimestamp, (req, res) => {
 			const db = client.db(dbName);
 			const findUser = (db, callback) => { 
 				let cursor = db.collection('user').find();
-				cursor.forEach((account) => { 
+				cursor.forEach((account) => { console.log(typeof account.name);
 					if (account.name == req.body.name && account.password == req.body.password) {
 						req.session.authenticated = true;
 						req.session.username = account.name;
