@@ -66,7 +66,7 @@ app.post('/login', setCurrentTimestamp, (req, res) => {
 					}
 					else{
 						res.status(200).render('fail');
-						console.log('Invalid!');
+						console.log('Invalid8!');
 					}
 				}); 
 				callback(); 
